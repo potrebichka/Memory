@@ -1,6 +1,10 @@
-function Card(value) {
+export function Card(value) {
   this.value = value;
 }
+
+Card.prototype.getImage = function() {
+  return this.value + ".jpg";
+} 
 
 
 export function Deck() {
@@ -9,14 +13,14 @@ export function Deck() {
 
 Deck.prototype.shuffle = function () {
   let shuffledCards = [];
-  let count = this.cards.length;
+  let count = this.cards.length-1;
   while (count > 0) {
-    var randomIndex = Math.random()*(this.cards.length-1);
+    var randomIndex = Math.round(Math.random()*(this.cards.length-1));
     if (this.cards[randomIndex]) {
       shuffledCards.push(this.cards[randomIndex]);
       count--;
-      delete this.cards[randomIndex]
+      delete this.cards[randomIndex];
     }
   }
   this.cards = shuffledCards;
-}
+};
