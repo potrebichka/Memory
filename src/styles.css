@@ -11,4 +11,5 @@ body {
 .grid-item {
   background-color: gold;
   border: 1px solid black;
+  cursor: pointer;
 }
